@@ -14,6 +14,7 @@ namespace ems.DTO
         public Nullable<decimal> Salary { get; set; }
         public Nullable<int> Age { get; set; }
         public Nullable<int> DepId { get; set; }
+        public DepartmentDto Department { get; set; }
         public string Gender { get; set; }
     }
 
@@ -26,4 +27,5 @@ namespace ems.DTO
         public Nullable<int> DepId { get; set; }
         public string Gender { get; set; }
     }
+
 }

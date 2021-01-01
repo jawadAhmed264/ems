@@ -42,7 +42,7 @@ namespace ems
                             }
                         }
                     }
-                   if (!roleMngr.RoleExists("User"))
+                    if (!roleMngr.RoleExists("User"))
                     {
                         roleMngr.Create(new IdentityRole("User"));
                         if (userMngr.FindByEmail("user@gmail.com") == null)

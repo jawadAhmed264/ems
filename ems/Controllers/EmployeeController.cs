@@ -10,7 +10,6 @@ using System.Web.Http;
 
 namespace ems.Controllers
 {
-    [Authorize(Roles ="Admin")]
     public class EmployeeController : ApiController
     {
         private IEmployeeService EmployeeService = null;
