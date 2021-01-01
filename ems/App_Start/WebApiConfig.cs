@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 using Microsoft.Owin.Security.OAuth;
 
 namespace ems
@@ -10,7 +11,6 @@ namespace ems
 
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
-
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
           

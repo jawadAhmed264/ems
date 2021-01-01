@@ -5,6 +5,7 @@ using ems.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Owin;
 
 [assembly: OwinStartup(typeof(ems.Startup))]
@@ -15,6 +16,7 @@ namespace ems
     {
         public void Configuration(IAppBuilder app)
         {
+            app.UseCors(CorsOptions.AllowAll);
             ConfigureAuth(app);
             CreateUserRoles();
         }
