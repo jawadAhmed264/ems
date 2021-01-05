@@ -11,7 +11,8 @@ using System.Web.Http.Cors;
 
 namespace ems.Controllers
 {
-
+    [EnableCors("*", "*", "*")]
+    [Authorize(Roles = "Admin")]
     public class DepartmentController : ApiController
     {
         private IDepartmentService DepartmentService = null;

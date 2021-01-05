@@ -16,7 +16,6 @@ namespace ems
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UseCors(CorsOptions.AllowAll);
             ConfigureAuth(app);
             CreateUserRoles();
         }
@@ -44,16 +43,16 @@ namespace ems
                             }
                         }
                     }
-                    if (!roleMngr.RoleExists("User"))
+                    if (!roleMngr.RoleExists("SubAdmin"))
                     {
-                        roleMngr.Create(new IdentityRole("User"));
-                        if (userMngr.FindByEmail("user@gmail.com") == null)
+                        roleMngr.Create(new IdentityRole("SubAdmin"));
+                        if (userMngr.FindByEmail("subadmin@gmail.com") == null)
                         {
-                            ApplicationUser user = new ApplicationUser { UserName = "user@gmail.com", Email = "user@gmail.com" };
+                            ApplicationUser user = new ApplicationUser { UserName = "subadmin@gmail.com", Email = "subadmin@gmail.com" };
                             var result = userMngr.Create(user, "Aa@12345");
                             if (result.Succeeded)
                             {
-                                userMngr.AddToRole(user.Id, "User");
+                                userMngr.AddToRole(user.Id, "SubAdmin");
                             }
                         }
                     }

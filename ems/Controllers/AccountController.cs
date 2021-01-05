@@ -21,7 +21,7 @@ namespace ems.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
-
+    [EnableCors("*","*","*")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
@@ -335,6 +335,7 @@ namespace ems.Controllers
 
             if (!result.Succeeded)
             {
+                UserManager.AddToRole(user.Id,model.Role);
                 return GetErrorResult(result);
             }
 
