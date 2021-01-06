@@ -21,7 +21,7 @@ namespace ems.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
-    [EnableCors("*","*","*")]
+    [EnableCors("*", "*", "*")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
@@ -126,7 +126,7 @@ namespace ems.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -259,9 +259,9 @@ namespace ems.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -335,7 +335,7 @@ namespace ems.Controllers
 
             if (!result.Succeeded)
             {
-                UserManager.AddToRole(user.Id,model.Role);
+                UserManager.AddToRoles(user.Id, model.Roles);
                 return GetErrorResult(result);
             }
 
@@ -370,7 +370,7 @@ namespace ems.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }

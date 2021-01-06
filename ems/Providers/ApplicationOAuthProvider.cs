@@ -16,7 +16,6 @@ namespace ems.Providers
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
         private readonly string _publicClientId;
-
         public ApplicationOAuthProvider(string publicClientId)
         {
             if (publicClientId == null)
@@ -46,9 +45,21 @@ namespace ems.Providers
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
+            var userRoles = userManager.GetRoles(user.Id);
+            foreach (string roleName in userRoles)
+            {
+                oAuthIdentity.AddClaim(new Claim(ClaimTypes.Role, roleName));
+                cookiesIdentity.AddClaim(new Claim(ClaimTypes.Role, roleName));
+            }
+            //return data to client
+            var additionalData = new AuthenticationProperties(new Dictionary<string, string>{
+              {"role", Newtonsoft.Json.JsonConvert.SerializeObject(userRoles)},
+              { "userName", user.UserName }
+            });
 
-            AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
+           // AuthenticationProperties properties = CreateProperties(user.UserName);
+
+            AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, additionalData);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
 
@@ -94,7 +105,7 @@ namespace ems.Providers
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "userName", userName },
             };
             return new AuthenticationProperties(data);
         }

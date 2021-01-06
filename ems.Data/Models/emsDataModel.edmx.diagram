@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="63d3cb0ce4594a8aa79ec7fc3876bfc8" Name="Diagram1">
-        <EntityTypeShape EntityType="emsDbModel.Department" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="emsDbModel.Employee" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="emsDbModel.FK__Employee__DepId__267ABA7A" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="emsDbModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="emsDbModel.AspNetRole" Width="1.5" PointX="0.75" PointY="6.5" />
-        <EntityTypeShape EntityType="emsDbModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="5" />
-        <EntityTypeShape EntityType="emsDbModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="7.75" />
-        <EntityTypeShape EntityType="emsDbModel.AspNetUser" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="emsDbModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="emsDbModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="emsDbModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="3.625" />
+        <EntityTypeShape EntityType="emsDbModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="emsDbModel.AspNetUser" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="emsDbModel.Department" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="emsDbModel.Employee" Width="1.5" PointX="3" PointY="7" />
         <AssociationConnector Association="emsDbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="emsDbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="emsDbModel.FK__Employee__DepId__267ABA7A" />
         <AssociationConnector Association="emsDbModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>

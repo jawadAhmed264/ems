@@ -12,7 +12,7 @@ using System.Web.Http.Cors;
 namespace ems.Controllers
 {
     [EnableCors("*", "*", "*")]
-    [Authorize(Roles ="Admin,User")]
+    [Authorize(Roles = "Admin,SubAdmin")]
     public class EmployeeController : ApiController
     {
         private IEmployeeService EmployeeService = null;
