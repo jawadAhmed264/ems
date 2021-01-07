@@ -20,8 +20,8 @@ using System.Web.Http.Cors;
 namespace ems.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/Account")]
     [EnableCors("*", "*", "*")]
+    [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
@@ -332,10 +332,13 @@ namespace ems.Controllers
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-
-            if (!result.Succeeded)
+            if (model.Roles != null || model.Roles.Length > -1)
             {
                 UserManager.AddToRoles(user.Id, model.Roles);
+            }
+            UserManager.AddToRoles(user.Id,"User");
+            if (!result.Succeeded)
+            {
                 return GetErrorResult(result);
             }
 
