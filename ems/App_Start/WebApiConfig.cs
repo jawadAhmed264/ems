@@ -14,6 +14,8 @@ namespace ems
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
+            //MiddleWare Config
+
             //config.MessageHandlers.Add(new ThrottlingHandler()
             //{
             //    Policy = new ThrottlePolicy(perSecond: 1, perMinute: 20, perHour: 200, perDay: 1500, perWeek: 3000)
@@ -24,6 +26,7 @@ namespace ems
             //    Repository = new CacheRepository()
             //});
 
+            //Attribute Throttle
             config.Filters.Add(new ThrottlingFilter()
             {
                 Policy = new ThrottlePolicy(perSecond: 1, perMinute: 20, perHour: 200, perDay: 2000, perWeek: 10000)
