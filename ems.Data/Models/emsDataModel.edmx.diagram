@@ -16,6 +16,7 @@
         <AssociationConnector Association="emsDbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="emsDbModel.FK__Employee__DepId__267ABA7A" />
         <AssociationConnector Association="emsDbModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="emsDbModel.FileDetail" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

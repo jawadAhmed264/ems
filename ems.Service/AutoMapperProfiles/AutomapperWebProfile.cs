@@ -15,6 +15,8 @@ namespace ems.Service.AutoMapperProfiles
             CreateMap<DepartmentUpdateDto, Department>();
             CreateMap<Employee, EmployeeUpdateDto>();
             CreateMap<EmployeeUpdateDto, Employee>();
+            CreateMap<FileDetail, FileDetailDto>();
+            CreateMap<FileDetailDto, FileDetail>();
         }
         
     }

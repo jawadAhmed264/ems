@@ -32,5 +32,6 @@ namespace ems.Data.Models
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<FileDetail> FileDetails { get; set; }
     }
 }

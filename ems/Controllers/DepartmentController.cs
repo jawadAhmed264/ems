@@ -111,7 +111,6 @@ namespace ems.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

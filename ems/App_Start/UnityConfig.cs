@@ -17,6 +17,7 @@ namespace ems
             
             container.RegisterType<IDepartmentService, DepartmentService>();
             container.RegisterType<IEmployeeService, EmployeeService>();
+            container.RegisterType<IFileService, FileService>();
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }

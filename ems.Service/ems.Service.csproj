@@ -51,8 +51,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceImplimentation\DepartmentService.cs" />
     <Compile Include="ServiceImplimentation\EmployeeService.cs" />
+    <Compile Include="ServiceImplimentation\FileService.cs" />
     <Compile Include="ServiceInterface\IDepartmentService.cs" />
     <Compile Include="ServiceInterface\IEmployeeService.cs" />
+    <Compile Include="ServiceInterface\IFileService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ems.Data\ems.Data.csproj">
