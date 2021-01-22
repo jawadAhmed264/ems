@@ -29,7 +29,7 @@ namespace ems
             //Attribute Throttle
             config.Filters.Add(new ThrottlingFilter()
             {
-                Policy = new ThrottlePolicy(perSecond: 1, perMinute: 20, perHour: 200, perDay: 2000, perWeek: 10000)
+                Policy = new ThrottlePolicy(perSecond:1,perDay: 100)
                 {
                     //scope to IPs
                     IpThrottling = true,

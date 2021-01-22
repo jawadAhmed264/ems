@@ -11,11 +11,11 @@ namespace ems.Controllers
 {
     [EnableCors("*", "*", "*")]
     [AllowAnonymous]
-    [EnableThrottling(PerSecond = 1)]
+    [EnableThrottling]
     public class ValueController : ApiController
     {
         [Route("api/value")]
-        [EnableThrottling(PerSecond = 1, PerMinute = 30, PerHour = 100)]
+        [EnableThrottling]
         public IHttpActionResult Get()
         {
             string[] arr = { "value1", "value2" };
