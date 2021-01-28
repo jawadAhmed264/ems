@@ -40,9 +40,9 @@ namespace ems.Service.ServiceImplimentation
 
         public IEnumerable<FileDetailDto> getAllFile()
         {
-            IEnumerable<FileDetailDto> FileList = repository.GetAll().AsEnumerable().
-                Select(file => ObjectMapper.Mapper.Map<FileDetailDto>(file)).ToList();
-            return FileList;
+            IQueryable<FileDetailDto> FileList = repository.GetAll().
+                Select(file => ObjectMapper.Mapper.Map<FileDetailDto>(file));
+            return FileList.AsEnumerable().ToList();
         }
 
         public FileDetailDto getFileById(object Id)

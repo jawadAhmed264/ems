@@ -1,6 +1,7 @@
 ﻿using ems.DTO;
 using ems.Service.ServiceImplimentation;
 using ems.Service.ServiceInterface;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,17 @@ namespace ems.Controllers
         public IHttpActionResult Get() {
             IEnumerable<EmployeeDto> employeeDtos = EmployeeService.getAllEmployees();
             return Ok(employeeDtos);
+        }
+
+        [HttpGet]
+        [Route("api/employee/GetbyFilters/{data=data}")]
+        public IHttpActionResult Get(string data)
+        {
+            Root root= JsonConvert.DeserializeObject<Root>(data);
+            IEnumerable<EmployeeDto> employeeDtos = EmployeeService.getEmployeesByFilter(root);
+            int count = EmployeeService.EmployeeCount();
+            var model = new EmployeeListDto{ Employees=employeeDtos.ToList(),TotalEmployees=count};
+            return Ok(model);
         }
 
         [HttpGet]

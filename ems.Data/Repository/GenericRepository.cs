@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http.OData;
 
 namespace ems.Data.Repository
 {
@@ -22,9 +23,10 @@ namespace ems.Data.Repository
             this._context = _context;
             table = _context.Set<T>();
         }
-        public IEnumerable<T> GetAll()
+        [EnableQuery]
+        public IQueryable<T> GetAll()
         {
-            return table.ToList();
+            return table.AsQueryable();
         }
         public T GetById(object id)
         {

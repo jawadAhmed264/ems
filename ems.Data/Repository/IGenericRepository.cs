@@ -8,7 +8,7 @@ namespace ems.Data.Repository
 {
     public interface IGenericRepository<T> where T : class
     {
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
         T GetById(object id);
         void Insert(T obj);
         void Update(T obj);

@@ -10,9 +10,11 @@ namespace ems.Service.ServiceInterface
     public interface IEmployeeService
     {
         IEnumerable<EmployeeDto> getAllEmployees();
+        IEnumerable<EmployeeDto> getEmployeesByFilter(Root root);
         EmployeeDto getEmployeeById(object Id);
         int addEmployee(EmployeeDto employeeDto);
         int updateEmployee(EmployeeUpdateDto employeeUpdateDto, object Id);
         int DeleteEmployee(object Id);
+        int EmployeeCount();
     }
 }

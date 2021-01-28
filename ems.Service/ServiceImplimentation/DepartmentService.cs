@@ -41,8 +41,9 @@ namespace ems.Service.ServiceImplimentation
 
         public IEnumerable<DepartmentDto> getAllDepartment()
         {
-            IEnumerable<DepartmentDto> DepartmentList = repository.GetAll().AsEnumerable().
+           IEnumerable<DepartmentDto> DepartmentList = repository.GetAll().AsEnumerable().
                 Select(dep => ObjectMapper.Mapper.Map<DepartmentDto>(dep)).ToList();
+            
             return DepartmentList;
         }
 

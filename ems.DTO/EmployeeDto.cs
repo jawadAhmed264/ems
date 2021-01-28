@@ -27,5 +27,10 @@ namespace ems.DTO
         public Nullable<int> DepId { get; set; }
         public string Gender { get; set; }
     }
+    public class EmployeeListDto
+    {
+        public IList<EmployeeDto> Employees { get; set; }
+        public int TotalEmployees { get; set; }
+    }
 
 }

@@ -13,12 +13,12 @@ namespace ems.Service.ServiceImplimentation
 {
     public class EmployeeService : IEmployeeService
     {
-        private IGenericRepository<Employee> repository = null;
+        private IEmployeeRepo repository = null;
         public EmployeeService()
         {
-            this.repository = new GenericRepository<Employee>();
+            this.repository = new EmployeeRepo();
         }
-        public EmployeeService(IGenericRepository<Employee> repository)
+        public EmployeeService(EmployeeRepo repository)
         {
             this.repository = repository;
         }
@@ -27,7 +27,7 @@ namespace ems.Service.ServiceImplimentation
         {
             Employee emp = ObjectMapper.Mapper.Map<Employee>(employeeDto);
             repository.Insert(emp);
-            int status=repository.Save();
+            int status = repository.Save();
             return status;
         }
 
@@ -35,6 +35,12 @@ namespace ems.Service.ServiceImplimentation
         {
             repository.Delete(Id);
             return repository.Save();
+        }
+
+        public int EmployeeCount()
+        {
+            int count = repository.GetAll().Count();
+            return count;
         }
 
         public IEnumerable<EmployeeDto> getAllEmployees()
@@ -46,16 +52,23 @@ namespace ems.Service.ServiceImplimentation
             return EmployeeList;
         }
 
+        public IEnumerable<EmployeeDto> getEmployeesByFilter(Root root)
+        {
+            IEnumerable<EmployeeDto> list = repository.getEmployeesByFilters(root).
+                           Select(emp => ObjectMapper.Mapper.Map<EmployeeDto>(emp)).ToList();
+            return list;
+        }
+
         public EmployeeDto getEmployeeById(object Id)
         {
             Employee emp = repository.GetById(Id);
             return ObjectMapper.Mapper.Map<EmployeeDto>(emp);
         }
-
         public int updateEmployee(EmployeeUpdateDto employeeUpdateDto, object Id)
         {
             Employee emp = repository.GetById(Id);
-            if (emp != null) {
+            if (emp != null)
+            {
                 emp = ObjectMapper.Mapper.Map(employeeUpdateDto, emp);
             }
             repository.Update(emp);
