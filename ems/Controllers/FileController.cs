@@ -107,7 +107,7 @@ namespace FileUploadAPI.Controllers
             {
                 lstFile = FileService.getAllFile();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

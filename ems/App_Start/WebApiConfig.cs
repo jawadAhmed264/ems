@@ -53,7 +53,7 @@ namespace ems
                     //EndpointThrottling = true
                 }
             });
-
+           
             // Web API routes
             config.MapHttpAttributeRoutes();
             config.EnableCors();
@@ -62,6 +62,10 @@ namespace ems
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            
         }
+     
+
+    
     }
 }

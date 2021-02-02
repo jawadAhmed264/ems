@@ -18,6 +18,10 @@ namespace ems.Controllers
     {
         private IEmployeeService EmployeeService = null;
 
+        public EmployeeController() 
+        {
+            EmployeeService = new EmployeeService();
+        }
         public EmployeeController(IEmployeeService employeeService) {
             this.EmployeeService = employeeService;
         }

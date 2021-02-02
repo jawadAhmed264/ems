@@ -28,6 +28,7 @@ namespace ems.Controllers
             IEnumerable<DepartmentDto> departments = DepartmentService.getAllDepartment();
             return Ok(departments);
         }
+
         [HttpGet]
         [AllowAnonymous]
         public IHttpActionResult Get(int? Id)

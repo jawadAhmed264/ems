@@ -45,7 +45,7 @@ namespace ems.Service.ServiceImplimentation
 
         public IEnumerable<EmployeeDto> getAllEmployees()
         {
-            IEnumerable<EmployeeDto> EmployeeList = repository.GetAll().
+            IEnumerable<EmployeeDto> EmployeeList = repository.GetAll().AsEnumerable().
                 Select(emp => ObjectMapper.Mapper.Map<EmployeeDto>(emp)
              ).ToList();
 

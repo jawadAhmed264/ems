@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ems.Service", "ems.Service\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ems.DTO", "ems.DTO\ems.DTO.csproj", "{595F2385-FCCE-44ED-ACB2-F104CF811407}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ems.test", "ems.test\ems.test.csproj", "{DC288748-CB01-4C13-8D79-5A9D3506FDB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{595F2385-FCCE-44ED-ACB2-F104CF811407}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{595F2385-FCCE-44ED-ACB2-F104CF811407}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{595F2385-FCCE-44ED-ACB2-F104CF811407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC288748-CB01-4C13-8D79-5A9D3506FDB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC288748-CB01-4C13-8D79-5A9D3506FDB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC288748-CB01-4C13-8D79-5A9D3506FDB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC288748-CB01-4C13-8D79-5A9D3506FDB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
